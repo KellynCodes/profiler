@@ -92,7 +92,7 @@ export class ProfileService {
     let filter: {} = {};
     if (keyword != '') {
       filter = {
-        title: {
+        username: {
           $regex: keyword,
           $options: 'i',
         },

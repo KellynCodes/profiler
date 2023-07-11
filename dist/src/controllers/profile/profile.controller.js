@@ -45,7 +45,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProfileController.prototype, "createProfile", null);
 __decorate([
-    (0, common_1.Post)('update-profile/:_id'),
+    (0, common_1.Post)('update-profile/:id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -63,8 +63,8 @@ __decorate([
     (0, swagger_1.ApiQuery)({
         name: 'keyword',
         required: false,
-        description: 'enter number of page to view.',
-        example: { username: 'kelly' },
+        description: 'search profile by username.',
+        example: 'kelly',
     }),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),

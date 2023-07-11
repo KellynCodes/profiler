@@ -1,7 +1,5 @@
 import { setupSwagger } from 'config/swagger.config';
-import { HttpExceptionFilter } from './middleware/exceptionHandler';
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './controllers/app/app.module';
 
 async function bootstrap() {

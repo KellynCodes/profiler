@@ -12,7 +12,7 @@ async function bootstrap() {
         allowedHeaders: 'Content-Type, Accept',
     });
     (0, swagger_config_1.setupSwagger)(app);
-    const PORT = 5000 || process.env.PORT;
+    const PORT = process.env.PORT || 5000;
     await app.listen(PORT);
     console.log(`ProfileInfo is running on port ${PORT}`);
 }

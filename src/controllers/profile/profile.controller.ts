@@ -27,7 +27,7 @@ export class ProfileController {
     return await this.profileService.createProfileAsync(model);
   }
 
-  @Post('update-profile/:_id')
+  @Post('update-profile/:id')
   async updateProfle(
     @Param('id') id: string,
     @Body() model: CreateProfileDto,
@@ -45,8 +45,8 @@ export class ProfileController {
   @ApiQuery({
     name: 'keyword',
     required: false,
-    description: 'enter number of page to view.',
-    example: { username: 'kelly' },
+    description: 'search profile by username.',
+    example: 'kelly',
   })
   async getAllProfiles(
     @Query() query: RequestQuery,
