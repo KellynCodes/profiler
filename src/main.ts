@@ -19,7 +19,7 @@ async function bootstrap() {
   //app.useGlobalPipes(new ValidationPipe());
 
   setupSwagger(app);
-  const PORT: number | string = 5000 || process.env.PORT;
+  const PORT: number | string = process.env.PORT || 5000;
   await app.listen(PORT);
   console.log(`ProfileInfo is running on port ${PORT}`);
 }
