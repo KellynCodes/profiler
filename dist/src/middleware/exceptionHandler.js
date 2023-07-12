@@ -19,16 +19,21 @@ let HttpExceptionFilter = class HttpExceptionFilter {
     catch(exception, host) {
         const { httpAdapter } = this.httpAdapterHost;
         const ctx = host.switchToHttp();
-        const httpStatus = exception instanceof common_1.HttpException
-            ? exception.getStatus()
-            : common_1.HttpStatus.INTERNAL_SERVER_ERROR;
-        const message = exception instanceof common_1.HttpException
-            ? exception.getResponse()
-            : {
-                statusCode: httpStatus,
+        let httpStatus;
+        let message;
+        if (exception instanceof common_1.HttpException) {
+            message = exception.getResponse();
+            httpStatus = exception.getStatus();
+            console.log(message);
+        }
+        else {
+            message = {
+                statusCode: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                 message: 'Sorry! something unexpected happened.',
                 error: 'Internal server error',
             };
+            console.error(exception);
+        }
         const responseBody = {
             message: message,
             timestamp: new Date().toISOString(),

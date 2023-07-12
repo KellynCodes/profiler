@@ -18,19 +18,20 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     const ctx = host.switchToHttp();
 
-    const httpStatus =
-      exception instanceof HttpException
-        ? exception.getStatus()
-        : HttpStatus.INTERNAL_SERVER_ERROR;
-    const message =
-      exception instanceof HttpException
-        ? exception.getResponse()
-        : {
-            statusCode: httpStatus,
-            message: 'Sorry! something unexpected happened.',
-            error: 'Internal server error',
-          };
-
+    let httpStatus: number;
+    let message: {};
+    if (exception instanceof HttpException) {
+      message = exception.getResponse();
+      httpStatus = exception.getStatus();
+      console.log(message);
+    } else {
+      message = {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: 'Sorry! something unexpected happened.',
+        error: 'Internal server error',
+      };
+      console.error(exception);
+    }
     const responseBody: {} = {
       message: message,
       timestamp: new Date().toISOString(),
