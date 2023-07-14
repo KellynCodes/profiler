@@ -7,7 +7,7 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin: 'http://localhost:4200', // Replace with your allowed origin(s)
+    origin: 'https://profiler.ui.netlify.app', // Replace with your allowed origin(s)
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Set this to true if your app uses sessions/authentication
     allowedHeaders: 'Content-Type, Accept',
