@@ -68,16 +68,16 @@ export class ProfileController {
   }
 
   @ApiParam({
-    name: 'password',
+    name: 'trackingCode',
     type: String,
     required: true,
     description: 'users password to access their profile',
     example: '4idkfalWIDL8493dfDSDFkJSKldaji',
   })
-  @Delete('profile/:password')
+  @Delete('profile/:trackingCode')
   async deleteProfile(
-    @Param('password') password: string,
+    @Param('trackingCode') trackingCode: string,
   ): Promise<HttpResponse> {
-    return await this.profileService.deleteProfileAsync(password);
+    return await this.profileService.deleteProfileAsync(trackingCode);
   }
 }

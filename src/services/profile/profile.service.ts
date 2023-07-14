@@ -114,14 +114,16 @@ export class ProfileService {
     return response;
   }
 
-  async deleteProfileAsync(password: string): Promise<HttpResponse> {
-    const user = await this.userModel.findOne({ password: password }).exec();
+  async deleteProfileAsync(trackingCode: string): Promise<HttpResponse> {
+    const user = await this.userModel
+      .findOne({ trackingCode: trackingCode })
+      .exec();
     if (user == null) {
       throw new BadRequestException('User not found.');
     }
 
     await user.deleteOne({
-      password: password,
+      trackingCode: trackingCode,
     });
     if (!user.$isDeleted) {
       const response: HttpResponse = {

@@ -107,13 +107,15 @@ let ProfileService = class ProfileService {
         };
         return response;
     }
-    async deleteProfileAsync(password) {
-        const user = await this.userModel.findOne({ password: password }).exec();
+    async deleteProfileAsync(trackingCode) {
+        const user = await this.userModel
+            .findOne({ trackingCode: trackingCode })
+            .exec();
         if (user == null) {
             throw new common_1.BadRequestException('User not found.');
         }
         await user.deleteOne({
-            password: password,
+            trackingCode: trackingCode,
         });
         if (!user.$isDeleted) {
             const response = {

@@ -33,8 +33,8 @@ let ProfileController = class ProfileController {
     async getProfile(trackingCode) {
         return await this.profileService.getProfileAsync(trackingCode);
     }
-    async deleteProfile(password) {
-        return await this.profileService.deleteProfileAsync(password);
+    async deleteProfile(trackingCode) {
+        return await this.profileService.deleteProfileAsync(trackingCode);
     }
 };
 __decorate([
@@ -86,14 +86,14 @@ __decorate([
 ], ProfileController.prototype, "getProfile", null);
 __decorate([
     (0, swagger_1.ApiParam)({
-        name: 'password',
+        name: 'trackingCode',
         type: String,
         required: true,
         description: 'users password to access their profile',
         example: '4idkfalWIDL8493dfDSDFkJSKldaji',
     }),
-    (0, common_1.Delete)('profile/:password'),
-    __param(0, (0, common_1.Param)('password')),
+    (0, common_1.Delete)('profile/:trackingCode'),
+    __param(0, (0, common_1.Param)('trackingCode')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)

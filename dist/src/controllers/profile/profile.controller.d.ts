@@ -10,5 +10,5 @@ export declare class ProfileController {
     updateProfle(id: string, model: CreateProfileDto): Promise<HttpResponse<User>>;
     getAllProfiles(query: RequestQuery): Promise<HttpResponse<User[]>>;
     getProfile(trackingCode: string): Promise<HttpResponse<User>>;
-    deleteProfile(password: string): Promise<HttpResponse>;
+    deleteProfile(trackingCode: string): Promise<HttpResponse>;
 }

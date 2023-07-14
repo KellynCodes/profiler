@@ -12,5 +12,5 @@ export declare class ProfileService {
     updateProfileAsync(id: string, model: CreateProfileDto): Promise<HttpResponse<User>>;
     getProfileAsync(trackingCode: string): Promise<HttpResponse<User>>;
     getAllProfileAsync(query: RequestQuery): Promise<HttpResponse<User[]>>;
-    deleteProfileAsync(password: string): Promise<HttpResponse>;
+    deleteProfileAsync(trackingCode: string): Promise<HttpResponse>;
 }
