@@ -24,7 +24,7 @@ AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot({ envFilePath: '.env', isGlobal: true }),
-            mongoose_1.MongooseModule.forRoot(process.env.MONGODB_LOCAL_URI),
+            mongoose_1.MongooseModule.forRoot(process.env.MONGODB_REMOTE_URI),
             mongoose_1.MongooseModule.forFeature([{ name: 'User', schema: user_1.UserSchema }]),
         ],
         controllers: [app_controller_1.AppController, profile_controller_1.ProfileController],
