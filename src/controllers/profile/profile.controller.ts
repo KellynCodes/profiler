@@ -55,16 +55,16 @@ export class ProfileController {
   }
 
   @ApiParam({
-    name: 'password',
+    name: 'trackingCode',
     required: true,
     description: 'fetch profile by password',
     example: '4idkfalWIDL8493dfDSDFkJSKldaji',
   })
-  @Get('profile/:password')
+  @Get('profile/:trackingCode')
   async getProfile(
-    @Param('password') password: string,
+    @Param('trackingCode') trackingCode: string,
   ): Promise<HttpResponse<User>> {
-    return await this.profileService.getProfileAsync(password);
+    return await this.profileService.getProfileAsync(trackingCode);
   }
 
   @ApiParam({

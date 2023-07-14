@@ -30,7 +30,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         message: 'Sorry! something unexpected happened.',
         error: 'Internal server error',
       };
-      console.error(exception);
+      console.error(`${Date.now()} ${exception}`);
     }
     const responseBody: {} = {
       message: message,

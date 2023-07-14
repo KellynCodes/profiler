@@ -6,34 +6,40 @@ import { Gender } from '../enum/gender';
 })
 export class User {
   @Prop({ required: true })
-  name: string;
+  senderName: string;
 
-  @Prop({ unique: true, required: true })
-  username: string;
+  @Prop({ required: true })
+  receiverName: string;
 
   @Prop({ unique: true, required: true })
   email: string;
 
-  @Prop({ required: true, unique: true })
-  password: string;
-
   @Prop()
-  accessCode: string;
+  trackingCode: string;
 
   @Prop()
   age: number;
-
-  @Prop()
-  country: string;
-
-  @Prop({ required: true })
-  profileImage: string;
 
   @Prop()
   isActive: boolean;
 
   @Prop()
   gender: Gender;
+
+  @Prop()
+  senderImage: string;
+
+  @Prop()
+  receiverImage: string;
+
+  @Prop()
+  destinationCountry: string;
+
+  @Prop()
+  address: string;
+
+  @Prop()
+  origin: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

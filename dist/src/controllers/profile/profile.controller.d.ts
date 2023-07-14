@@ -9,6 +9,6 @@ export declare class ProfileController {
     createProfile(model: CreateProfileDto): Promise<HttpResponse<User>>;
     updateProfle(id: string, model: CreateProfileDto): Promise<HttpResponse<User>>;
     getAllProfiles(query: RequestQuery): Promise<HttpResponse<User[]>>;
-    getProfile(password: string): Promise<HttpResponse<User>>;
+    getProfile(trackingCode: string): Promise<HttpResponse<User>>;
     deleteProfile(password: string): Promise<HttpResponse>;
 }

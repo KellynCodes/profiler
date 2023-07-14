@@ -1,3 +1,3 @@
 export declare class GenerateAccessCode {
-    generateAccessCode(length: number): string;
+    generateTrackingCode(length: number): string;
 }

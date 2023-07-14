@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenerateAccessCode = void 0;
 class GenerateAccessCode {
-    generateAccessCode(length) {
+    generateTrackingCode(length) {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let randomText = '';
         for (let i = 0; i < length; i++) {

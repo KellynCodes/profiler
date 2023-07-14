@@ -5,9 +5,7 @@ import { User } from './../../data/models/user';
 import { BadRequestException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
-import { Query } from 'express-serve-static-core';
 import { HttpResponse } from '../../data/utils/dto/HttpResponse';
-import { ApiQuery } from '@nestjs/swagger';
 
 @Injectable()
 export class ProfileService {
@@ -28,11 +26,11 @@ export class ProfileService {
       return response;
     }
 
-    model.accessCode = this.genAccessCode.generateAccessCode(20);
+    model.trackingCode = this.genAccessCode.generateTrackingCode(20);
     const newUser = await this.userModel.create(model);
-    if (newUser.populated == undefined) {
+    if (newUser == null) {
       throw new BadRequestException(
-        `Update failed! with reason: ${newUser.errors.message}`,
+        `Upload failed! with reason: ${newUser.errors.message}`,
       );
     }
     const response: HttpResponse<User> = {
@@ -61,20 +59,22 @@ export class ProfileService {
     });
     const response: HttpResponse<User> = {
       statusCode: HttpStatus.OK,
-      message: `${user.username}'s profile was updated successfully.`,
+      message: `${user.receiverName}'s profile was updated successfully.`,
       data: updateUser,
     };
     return response;
   }
 
-  async getProfileAsync(password: string): Promise<HttpResponse<User>> {
-    const user = await this.userModel.findOne({ password: password }).exec();
+  async getProfileAsync(trackingCode: string): Promise<HttpResponse<User>> {
+    const user = await this.userModel
+      .findOne({ trackingCode: trackingCode })
+      .exec();
     if (user == null) {
       throw new BadRequestException('User not found.');
     }
     const response: HttpResponse<User> = {
       statusCode: HttpStatus.OK,
-      message: `${user.username} was found`,
+      message: `${user.receiverName} was found`,
       data: user,
     };
     return response;

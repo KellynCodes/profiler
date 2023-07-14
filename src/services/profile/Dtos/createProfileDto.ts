@@ -1,17 +1,23 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Gender } from '../../../data/enum/gender';
 export class CreateProfileDto {
-  @ApiProperty({ example: 'Kelechi Amos Omeh', description: 'users full name' })
-  name: string;
+  @ApiProperty({ example: 'kelechi', description: 'senders name.' })
+  senderName: string;
 
-  @ApiProperty({ example: 'kelly', description: 'users username' })
-  username: string;
+  @ApiProperty({ example: 'Kennedy', description: 'receivers name.' })
+  receiverName: string;
 
   @ApiProperty({
     example: 'https://profiler.netlify.app/uploads/[username].png',
     description: 'users profile picture.',
   })
-  profileImage: string;
+  senderImage: string;
+
+  @ApiProperty({
+    example: 'https://profiler.netlify.app/uploads/[username].png',
+    description: 'users profile picture.',
+  })
+  receiverImage: string;
 
   @ApiProperty({
     example: 'kellyncodes@gmail.com',
@@ -19,26 +25,22 @@ export class CreateProfileDto {
   })
   email: string;
 
-  @ApiProperty({
-    example: '4idkfalWIDL8493dfDSDFkJSKldaji',
-    description: 'users email address.',
-  })
-  password: string;
+  trackingCode: string;
 
-  @ApiProperty({
-    description: 'users email address.',
-  })
-  accessCode: string;
+  @ApiProperty({ example: 'Nigeria', description: 'senders country.' })
+  origin: string;
 
   @ApiProperty({ example: 'Nigeria', description: 'users country.' })
-  country: string;
+  destinationCountry: string;
 
   @ApiProperty({ example: 30, description: 'users age.' })
   age: number;
 
-  // @IsEnum(Gender, {message: `please enter a valid ${Gender}`})
   @ApiProperty({ example: 'male', description: 'users gender' })
   gender: Gender;
+
+  @ApiProperty({ example: 'Enugu, Nigeria', description: 'users address.' })
+  address: string;
 
   @ApiProperty({ example: true, description: 'marks user as an active user.' })
   isActive: boolean;

@@ -1,13 +1,15 @@
 import { Gender } from '../../../data/enum/gender';
 export declare class CreateProfileDto {
-    name: string;
-    username: string;
-    profileImage: string;
+    senderName: string;
+    receiverName: string;
+    senderImage: string;
+    receiverImage: string;
     email: string;
-    password: string;
-    accessCode: string;
-    country: string;
+    trackingCode: string;
+    origin: string;
+    destinationCountry: string;
     age: number;
     gender: Gender;
+    address: string;
     isActive: boolean;
 }

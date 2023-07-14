@@ -10,7 +10,7 @@ export declare class ProfileService {
     constructor(userModel: mongoose.Model<User>, genAccessCode: GenerateAccessCode);
     createProfileAsync(model: CreateProfileDto): Promise<HttpResponse<User>>;
     updateProfileAsync(id: string, model: CreateProfileDto): Promise<HttpResponse<User>>;
-    getProfileAsync(password: string): Promise<HttpResponse<User>>;
+    getProfileAsync(trackingCode: string): Promise<HttpResponse<User>>;
     getAllProfileAsync(query: RequestQuery): Promise<HttpResponse<User[]>>;
     deleteProfileAsync(password: string): Promise<HttpResponse>;
 }

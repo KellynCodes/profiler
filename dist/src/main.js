@@ -6,7 +6,7 @@ const app_module_1 = require("./controllers/app/app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors({
-        origin: 'http://profiler.netlify.app',
+        origin: 'http://localhost:4200',
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
         credentials: true,
         allowedHeaders: 'Content-Type, Accept',

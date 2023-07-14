@@ -1,5 +1,5 @@
 export class GenerateAccessCode {
-  public generateAccessCode(length: number): string {
+  public generateTrackingCode(length: number): string {
     const characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let randomText = '';

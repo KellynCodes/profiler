@@ -15,20 +15,27 @@ const gender_1 = require("../../../data/enum/gender");
 class CreateProfileDto {
 }
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'Kelechi Amos Omeh', description: 'users full name' }),
+    (0, swagger_1.ApiProperty)({ example: 'kelechi', description: 'senders name.' }),
     __metadata("design:type", String)
-], CreateProfileDto.prototype, "name", void 0);
+], CreateProfileDto.prototype, "senderName", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'kelly', description: 'users username' }),
+    (0, swagger_1.ApiProperty)({ example: 'Kennedy', description: 'receivers name.' }),
     __metadata("design:type", String)
-], CreateProfileDto.prototype, "username", void 0);
+], CreateProfileDto.prototype, "receiverName", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
         example: 'https://profiler.netlify.app/uploads/[username].png',
         description: 'users profile picture.',
     }),
     __metadata("design:type", String)
-], CreateProfileDto.prototype, "profileImage", void 0);
+], CreateProfileDto.prototype, "senderImage", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({
+        example: 'https://profiler.netlify.app/uploads/[username].png',
+        description: 'users profile picture.',
+    }),
+    __metadata("design:type", String)
+], CreateProfileDto.prototype, "receiverImage", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
         example: 'kellyncodes@gmail.com',
@@ -37,22 +44,13 @@ __decorate([
     __metadata("design:type", String)
 ], CreateProfileDto.prototype, "email", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
-        example: '4idkfalWIDL8493dfDSDFkJSKldaji',
-        description: 'users email address.',
-    }),
+    (0, swagger_1.ApiProperty)({ example: 'Nigeria', description: 'senders country.' }),
     __metadata("design:type", String)
-], CreateProfileDto.prototype, "password", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({
-        description: 'users email address.',
-    }),
-    __metadata("design:type", String)
-], CreateProfileDto.prototype, "accessCode", void 0);
+], CreateProfileDto.prototype, "origin", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: 'Nigeria', description: 'users country.' }),
     __metadata("design:type", String)
-], CreateProfileDto.prototype, "country", void 0);
+], CreateProfileDto.prototype, "destinationCountry", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: 30, description: 'users age.' }),
     __metadata("design:type", Number)
@@ -61,6 +59,10 @@ __decorate([
     (0, swagger_1.ApiProperty)({ example: 'male', description: 'users gender' }),
     __metadata("design:type", String)
 ], CreateProfileDto.prototype, "gender", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Enugu, Nigeria', description: 'users address.' }),
+    __metadata("design:type", String)
+], CreateProfileDto.prototype, "address", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ example: true, description: 'marks user as an active user.' }),
     __metadata("design:type", Boolean)

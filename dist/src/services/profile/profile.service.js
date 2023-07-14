@@ -32,10 +32,10 @@ let ProfileService = class ProfileService {
             };
             return response;
         }
-        model.accessCode = this.genAccessCode.generateAccessCode(20);
+        model.trackingCode = this.genAccessCode.generateTrackingCode(20);
         const newUser = await this.userModel.create(model);
-        if (newUser.populated == undefined) {
-            throw new common_1.BadRequestException(`Update failed! with reason: ${newUser.errors.message}`);
+        if (newUser == null) {
+            throw new common_1.BadRequestException(`Upload failed! with reason: ${newUser.errors.message}`);
         }
         const response = {
             statusCode: common_1.HttpStatus.OK,
@@ -58,19 +58,21 @@ let ProfileService = class ProfileService {
         });
         const response = {
             statusCode: common_1.HttpStatus.OK,
-            message: `${user.username}'s profile was updated successfully.`,
+            message: `${user.receiverName}'s profile was updated successfully.`,
             data: updateUser,
         };
         return response;
     }
-    async getProfileAsync(password) {
-        const user = await this.userModel.findOne({ password: password }).exec();
+    async getProfileAsync(trackingCode) {
+        const user = await this.userModel
+            .findOne({ trackingCode: trackingCode })
+            .exec();
         if (user == null) {
             throw new common_1.BadRequestException('User not found.');
         }
         const response = {
             statusCode: common_1.HttpStatus.OK,
-            message: `${user.username} was found`,
+            message: `${user.receiverName} was found`,
             data: user,
         };
         return response;

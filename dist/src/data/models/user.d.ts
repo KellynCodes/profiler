@@ -25,16 +25,18 @@
 /// <reference types="mongoose/types/inferschematype" />
 import { Gender } from '../enum/gender';
 export declare class User {
-    name: string;
-    username: string;
+    senderName: string;
+    receiverName: string;
     email: string;
-    password: string;
-    accessCode: string;
+    trackingCode: string;
     age: number;
-    country: string;
-    profileImage: string;
     isActive: boolean;
     gender: Gender;
+    senderImage: string;
+    receiverImage: string;
+    destinationCountry: string;
+    address: string;
+    origin: string;
 }
 export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any, import("mongoose").Document<unknown, any, User> & Omit<User & {
     _id: import("mongoose").Types.ObjectId;
