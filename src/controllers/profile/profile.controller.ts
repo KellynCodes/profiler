@@ -13,7 +13,6 @@ import {
 } from '@nestjs/common';
 import { ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { CreateProfileDto } from '../../services/profile/Dtos/createProfileDto';
-import { Query as ExpressQuery } from 'express-serve-static-core';
 
 @ApiTags('UserProfile')
 @Controller('profile')
